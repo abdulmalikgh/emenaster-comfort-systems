@@ -135,6 +135,7 @@ ul li a:hover {
 /* MODAL FORM */
 .submit{
     background-color: var(--primary)!important;
+    padding: .5em 1em;
 }
 .modal-header{
     background-color:var(--primary);
