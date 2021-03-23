@@ -69,7 +69,7 @@ ul li a:hover {
     padding-top: 2em;
     padding-bottom: 2em;
 }
-.card__button button {
+.card__button .button {
     width:200px;
     background-color:transparent;
     outline:none;

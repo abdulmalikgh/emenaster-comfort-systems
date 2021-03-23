@@ -1,28 +1,30 @@
 import React from 'react'
-
+import logo from './assets/logsmall.png'
+import menu from './assets/menu.svg'
+import { Link } from 'react-router-dom'
 export default function AppNav() {
     return (
         <>
-            <nav id="app_nav_bar" class="navbar navbar-expand-lg navbar-light bg-light">
-            <a class="navbar-brand" href="./index.html">
-                <img src="./logsmall.png" height="60"/>
-            </a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <img src="./assets/menu.svg" height="40" />
-            </button>
+            <nav id="app_nav_bar" className="navbar navbar-expand-lg navbar-light bg-light">
+                <Link className="navbar-brand" to="./index.html">
+                    <img src={logo} alt="" height="60"/>
+                </Link>
+                <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <img src={menu} height="40" alt="" />
+                </button>
 
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav ml-auto">
-                    <li class="nav-item">
-                        <a class="nav-link" aria-current="page" href="#">Book Request</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Contact Us</a>
-                    </li>
-                </ul>
-    
-            </div>
-        </nav>
+                <div className="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul className="navbar-nav ml-auto">
+                        <li className="nav-item">
+                            <Link className="nav-link" aria-current="page" href="#">Book Request</Link>
+                        </li>
+                        <li className="nav-item">
+                            <Link className="nav-link" href="#">Contact Us</Link>
+                        </li>
+                    </ul>
+        
+                </div>
+            </nav>
         </>
     )
 }

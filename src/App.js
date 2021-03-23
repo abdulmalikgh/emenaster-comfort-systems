@@ -5,13 +5,13 @@ function App() {
   return (
     <Router>
       <AppNav />
-        <>
+        <main id="main_container"> 
           <Switch>
-              <Route path="/">
+              <Route  exact path="/">
                 <Main />
               </Route>
           </Switch>
-        </>
+        </main>
     </Router>
   );
 }
