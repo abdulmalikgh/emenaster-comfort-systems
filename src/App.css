@@ -152,13 +152,22 @@ ul li a:hover {
     border:none;
     color:#fff!important;
 }
+/* REQUEST SERVICE  */
+#service_request_wrapper{
+    width:100%;
+    background-color: var(--primary);
+    padding: 4em 10%;
+}
+.request_service{
+    background-color: var(--white);
+}
 /* card content */
 @media screen and (max-width:1050px) {
     #main_container{
         padding: 9em 5%;
         background-color: var(--primary);
      } 
-     #app_nav_bar {
+     #app_nav_bar,#service_request_wrapper {
         padding-left: 5%;
         padding-right: 5%;
     } 
