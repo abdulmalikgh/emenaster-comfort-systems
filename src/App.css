@@ -154,13 +154,16 @@ ul li a:hover {
     color:#fff!important;
 }
 /* REQUEST SERVICE  */
-#service_request_wrapper{
+#service_request_wrapper, #user_requests{
     width:100%;
     background-color: var(--primary);
     padding: 4em 10%;
 }
-.request_service{
+.request_service, .user_requests_inner_container{
     background-color: var(--white);
+}
+label{
+    color:#000;
 }
 /* card content */
 @media screen and (max-width:1050px) {
@@ -173,6 +176,7 @@ ul li a:hover {
         padding-right: 5%;
     } 
 }
+
 @media screen and (max-width:767px) {
     .border-top{
         border-top:1px solid #000;

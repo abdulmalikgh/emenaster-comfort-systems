@@ -2,6 +2,8 @@ import { BrowserRouter as Router, Switch, Route} from 'react-router-dom'
 import AppNav from './AppNav'
 import Main from './Main'
 import RequestService from './RequestService'
+import UserRequests from './UserRequests'
+
 function App() {
   return (
     <Router>
@@ -11,8 +13,11 @@ function App() {
               <Route  exact path="/">
                 <Main />
               </Route>
-              <Route exact path="/service_request">
+              <Route exact path="/customer/service_request">
                 <RequestService />
+              </Route>
+              <Route exact path="/customer/bookings">
+                <UserRequests/>
               </Route>
           </Switch>
         </>

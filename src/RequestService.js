@@ -56,7 +56,7 @@ export default function RequestService() {
 
        } catch (error) {
          setIsLoading(false)
-         setError('An Error occured try again')
+         setError('An Error occured try again', error   )
        }
 
     }

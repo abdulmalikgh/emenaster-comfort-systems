@@ -6,7 +6,7 @@ export default function AppNav() {
     return (
         <>
             <nav id="app_nav_bar" className="navbar navbar-expand-lg navbar-light bg-light">
-                <Link className="navbar-brand" to="./">
+                <Link className="navbar-brand" to="/">
                     <img src={logo} alt="" height="60"/>
                 </Link>
                 <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -16,7 +16,10 @@ export default function AppNav() {
                 <div className="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul className="navbar-nav ml-auto">
                         <li className="nav-item">
-                            <Link className="nav-link" aria-current="page" to="/service_request">Book Request</Link>
+                            <Link className="nav-link" aria-current="page" to="/customer/service_request">Book Request</Link>
+                        </li>
+                        <li className="nav-item">
+                            <Link className="nav-link" to="/customer/bookings">My Bookings</Link>
                         </li>
                         <li className="nav-item">
                             <Link className="nav-link" to="#">Contact Us</Link>

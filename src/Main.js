@@ -12,7 +12,7 @@ export default function Main() {
                         <img height="120" src={appointments} alt="service request"/>
                     </div>
                     <div className="card__button">
-                        <Link to="/service_request"  className="draw-border button btn">
+                        <Link to="/customer/service_request"  className="draw-border button btn">
                             Service Request
                         </Link>
                     </div>
@@ -22,9 +22,9 @@ export default function Main() {
                         <img height="120" src={request} alt="My requests" />
                     </div>
                     <div className="card__button">
-                        <button className="draw-border button">
+                        <Link className="draw-border button btn" to="/customer/bookings">
                             My Bookings
-                        </button>
+                        </Link>
                     </div>
                 </div>
                 <div className=" main__card">
