@@ -40,23 +40,24 @@ export default function RequestService() {
             "service_request_charge": service_request_charge,
             "service_request_type": service_request_type
         }
+        console.log('data', data)
 
        try {
-          const response = await axios.post('http://139.162.134.202:8000/api/service-request/post-service-request',data )
-           setIsLoading(false)
-           setSuccces(response.data.message)
+            const response = await axios.post('http://139.162.134.202:8000/api/service-request/post-service-request',data )
+            setIsLoading(false)
+            setSuccces(response.data.message)
 
-          // reset form inputs
-          setCustomerName('')
-          setCustomerPhoneNumber('')
-          setCustomerAddress('')
-          setClosestLandmark('')
-          setRequestCharge('') 
-          setRequestCharge('')  
+            // reset form inputs
+            setCustomerName('')
+            setCustomerPhoneNumber('')
+            setCustomerAddress('')
+            setClosestLandmark('')
+            setRequestCharge('') 
+            setRequestCharge('')  
 
        } catch (error) {
-         setIsLoading(false)
-         setError('An Error occured try again', error   )
+            setIsLoading(false)
+            setError('An Error occured try again', error   )
        }
 
     }
@@ -101,17 +102,23 @@ export default function RequestService() {
                                     onChange={e => setClosestLandmark(e.target.value)}/>
                             </div>
                             <div className="form-group">
-                                <label htmlFor="service_request_type">Select Service Request Type </label>
+                                <label htmlFor="service_request_type">Service Request Type </label>
                                 <select  className="form-control" id="serivice_request_type"
                                     onChange={e => setRequestType(e.target.value)} required='required'>
-                                    {serviceRequestTypes.map( type => ( <option key={type.service_id} value={type.service_id}>{type.service_name}</option>))}
+                                    <option value="">Select Service Type</option>
+                                    <>
+                                        {serviceRequestTypes.map( type => ( <option key={type.service_id} value={type.service_id}>{type.service_name}</option>))}
+                                    </>
                                 </select>
                             </div>
                             <div className="form-group">
-                                <label htmlFor="service_request_charge">Select Service Request Charge</label>
+                                <label htmlFor="service_request_charge">Service Request Charge</label>
                                 <select className="form-control" name="serivice_request_charge"
                                     onChange={e => setRequestCharge(e.target.value)} required="required" >
-                                {serviceRequestCharges.map( type => ( <option key={type.service_delivery_charge_id} value={type.service_delivery_charge_id}>{type.service_delivery_charge_name} {`(GH₵:${type.service_delivery_charge})`}</option>))}
+                                    <option value=''>Select Service Request Charge</option>
+                                    <>
+                                        {serviceRequestCharges.map( type => ( <option key={type.service_delivery_charge_id} value={type.service_delivery_charge_id}>{type.service_delivery_charge_name} {`(GH₵:${type.service_delivery_charge})`}</option>))}
+                                    </>
                                 </select>
                             </div>
                             {success && <div class="alert alert-success" role="alert">

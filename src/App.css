@@ -171,7 +171,7 @@ label{
         padding: 9em 5%;
         background-color: var(--primary);
      } 
-     #app_nav_bar,#service_request_wrapper {
+     #app_nav_bar,#service_request_wrapper,#user_requests {
         padding-left: 5%;
         padding-right: 5%;
     } 
