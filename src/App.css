@@ -1,15 +1,47 @@
 /* navigation component */
-@import url("https://fonts.googleapis.com/css2?family=Baloo+Paaji+2:wght@400;500&display=swap");
+/* @import url("https://fonts.googleapis.com/css2?family=Baloo+Paaji+2:wght@400;500&display=swap"); */
+@font-face {
+    font-family: 'Gilroy-Bold';
+	src:  url('./assets/font/Gilroy-Bold.ttf')  format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Gilroy-Medium';
+	src:  url('./assets//font/Gilroy-Medium.ttf')  format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
 :root {
-    --primary:#2b6ca6;
+    /*   */
+    --primary:#03A6E5;
     --danger: #bf242a;
     --secondary: #ca9744;
     --black:#000;
     --white:#fff;
+    --lightblue:#3B3B3B;
 }
 body{
-    font-family: 'Baloo Paaji 2', cursive;
+    font-family: 'Gilroy-Bold';
+    background-image: url('./assets/image.jpg');
+    width:100%;
+    height: 100%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    background-attachment: fixed;
+
 }
+/* FONT SECTION */
+#footer .copy-right, #footer .foot-menu ul li a, #footer p, #footer {
+    font-size: 18px;
+    font-family: Gilroy-Medium;
+    color: var(--black);
+    margin: 0;
+}
+/* FONT SECTION */
 .navbar-toggler{
     border:none;
     outline:none;
@@ -24,21 +56,21 @@ body{
     padding-right: 10%;
     background-color: var(--white)!important;
 }
-ul li {
+#app_nav_bar ul li {
     /* padding-top:25px;
     padding-bottom:25px; */
     margin-left: 1em;
 }
-ul li:hover {
+#app_nav_bar ul li:hover {
     border-bottom: 3px solid var(--danger);
 }
-ul li a {
+#app_nav_bar ul li a {
     color: var(--black)!important;
     font-weight: bold;
     transition: all 0.2s;
 }
 
-ul li a:hover {
+#app_nav_bar ul li a:hover {
     color:var(--black)!important;
 }
 /* .collapse.show{
@@ -48,7 +80,7 @@ ul li a:hover {
 #main_container{
    width: 100%;
    padding: 9em 10%;
-   background-color: var(--primary);
+   /* background-color: var(--primary); */
 }
 
 .main__card__wrapper{
@@ -80,6 +112,16 @@ ul li a:hover {
     font-weight: bold;
 }
 /* button hover animation */
+.search {
+    border:none;
+    outline:none;
+    background-color: #58afd1;
+    padding:.5em 3em;
+    color:#fff;
+}
+.search:hover {
+    color:#fff;
+}
 .draw-border {
     box-shadow:inset  0 0 0 4px var(--primary);
     color: #58afd1;
@@ -156,7 +198,7 @@ ul li a:hover {
 /* REQUEST SERVICE  */
 #service_request_wrapper, #user_requests{
     width:100%;
-    background-color: var(--primary);
+    /* background-color: var(--primary); */
     padding: 4em 10%;
 }
 .request_service, .user_requests_inner_container{
@@ -165,26 +207,75 @@ ul li a:hover {
 label{
     color:#000;
 }
-/* card content */
+/* FOOTER SECTION */
+.footer{
+    background-color: var(--white);
+    padding-top:5em;
+    padding-bottom: 2em;
+    padding-right: 10%;
+    padding-left: 10%;
+    color: var(--black);
+    opacity: 0.95;
+}
+.footer p{
+    color: var(--black);
+    font-size:1.1em;
+    opacity: .8;
+}
+.footer ul {
+    list-style-type: none;
+    padding-left: 0;
+
+}
+.footer ul li a{
+    color:var(--black)
+}
+
+.footer h3{
+    color: var(--black);
+    font-weight: bold;
+}
+/* FOOTER SECTION */
+/* HIDDING BOOTSTRAP BLUE SHADOW*/
+textarea:focus, 
+textarea.form-control:focus, 
+input.form-control:focus, 
+input[type=text]:focus, 
+input[type=password]:focus, 
+input[type=email]:focus, 
+input[type=number]:focus, 
+select:focus,  
+select.form-control:focus, 
+[type=text].form-control:focus, 
+[type=password].form-control:focus, 
+[type=email].form-control:focus, 
+[type=tel].form-control:focus, 
+[contenteditable].form-control:focus {
+  box-shadow: inset 0 -1px 0 #ddd;
+}
 @media screen and (max-width:1050px) {
     #main_container{
         padding: 9em 5%;
         background-color: var(--primary);
      } 
-     #app_nav_bar,#service_request_wrapper,#user_requests {
-        padding-left: 5%;
-        padding-right: 5%;
-    } 
+      
 }
 
 @media screen and (max-width:767px) {
+    #app_nav_bar,
+    /* .footer, */
+    #service_request_wrapper,
+    #user_requests {
+        padding-left: 5%;
+        padding-right: 5%;
+    }
     .border-top{
         border-top:1px solid #000;
     }
-    ul li:hover {
+    #app_nav_bar ul li:hover {
         border-bottom: none;
     }
-    ul li {
+    #app_nav_bar ul li {
         padding-top:10px;
         padding-bottom:10px;
         margin-left: none;

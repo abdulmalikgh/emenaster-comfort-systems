@@ -3,6 +3,7 @@ import AppNav from './AppNav'
 import Main from './Main'
 import RequestService from './RequestService'
 import UserRequests from './UserRequests'
+import Footer from './Footer'
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
               </Route>
           </Switch>
         </>
+      <Footer />
     </Router>
   );
 }

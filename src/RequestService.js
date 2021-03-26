@@ -12,6 +12,7 @@ export default function RequestService() {
     const [closest_landmark,setClosestLandmark] = useState('')
     const [service_request_charge,setRequestCharge] = useState('')
     const [service_request_type, setRequestType] = useState('')
+    const [customer_email, setCustomerEmail] = useState('')
     const [isLoading, setIsLoading] = useState(false)
     const [success, setSuccces] = useState('')
     const [error, setError] = useState('')
@@ -38,7 +39,8 @@ export default function RequestService() {
             "customer_address": customer_address,
             "closest_landmark": closest_landmark,
             "service_request_charge": service_request_charge,
-            "service_request_type": service_request_type
+            "service_request_type": service_request_type,
+            "customer_email":customer_email
         }
         console.log('data', data)
 
@@ -81,6 +83,13 @@ export default function RequestService() {
                                     onChange={e => setCustomerName(e.target.value)} />
                             </div>
                             <div className="form-group">
+                                <label htmlFor="customer_email"> Email Address </label>
+                                <input required type="email" placeholder="Enter your email address" 
+                                    name="customer_email" id="customer_email" className="form-control" 
+                                    onChange={e => setCustomerEmail(e.target.value)}
+                                />
+                            </div>
+                            <div className="form-group">
                                 <label htmlFor="customer_phone_number"> Phone Number </label>
                                 <input required type="tel" placeholder="Enter your phone number" 
                                     name="customer_phone_number" id="customer_phone_number" className="form-control" 
@@ -88,7 +97,7 @@ export default function RequestService() {
                                 />
                             </div>
                             <div className="form-group">
-                                <label htmlFor="customer_address">Enter Your Address </label>
+                                <label htmlFor="customer_address">Digital or Physical Address </label>
                                 <input required type="address" 
                                     placeholder="Enter your address" name="customer_address" 
                                     id="customer_address" className="form-control"
@@ -102,30 +111,30 @@ export default function RequestService() {
                                     onChange={e => setClosestLandmark(e.target.value)}/>
                             </div>
                             <div className="form-group">
-                                <label htmlFor="service_request_type">Service Request Type </label>
+                                <label htmlFor="service_request_type">Request Type </label>
                                 <select  className="form-control" id="serivice_request_type"
                                     onChange={e => setRequestType(e.target.value)} required='required'>
-                                    <option value="">Select Service Type</option>
+                                    <option value="" className="text-dark">Select Service Type</option>
                                     <>
                                         {serviceRequestTypes.map( type => ( <option key={type.service_id} value={type.service_id}>{type.service_name}</option>))}
                                     </>
                                 </select>
                             </div>
                             <div className="form-group">
-                                <label htmlFor="service_request_charge">Service Request Charge</label>
+                                <label htmlFor="service_request_charge">Duration/Wait Period    </label>
                                 <select className="form-control" name="serivice_request_charge"
                                     onChange={e => setRequestCharge(e.target.value)} required="required" >
-                                    <option value=''>Select Service Request Charge</option>
+                                    <option value='' className="text-dark">Select service duration/wait period</option>
                                     <>
                                         {serviceRequestCharges.map( type => ( <option key={type.service_delivery_charge_id} value={type.service_delivery_charge_id}>{type.service_delivery_charge_name} {`(GH₵:${type.service_delivery_charge})`}</option>))}
                                     </>
                                 </select>
                             </div>
-                            {success && <div class="alert alert-success" role="alert">
-                                {success}
+                            {success && <div class="alert alert-success py-2" role="alert">
+                                <p>{success}</p>
                             </div>}
-                            {error && <div class="alert alert-alert" role="alert">
-                                {error}
+                            {error && <div class="alert alert-alert py-2" role="alert">
+                                <p>{error}</p>
                             </div>}
                             <div className="modal-footer">
                                 {!isLoading &&  <button  type="submit" className="btn btn-primary submit">Submit</button>}

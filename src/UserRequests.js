@@ -52,7 +52,7 @@ export default function UserRequests() {
                             <div className="form-group">
                                 <input required type="text" 
                                     onChange={(e) => setPhoneNumber(e.target.value)} 
-                                    className="form-control" placeholder="Enter your phone number or booking id">
+                                    className="form-control" placeholder="Enter your phone number to view your requests...">
                                 </input> 
                             </div>
                             <div className="row justify-content-center">
@@ -60,10 +60,10 @@ export default function UserRequests() {
                                     {error && <div className="alert alert-danger"> { error }</div>}
                                 </div>
                                 <div className="col-11 col-sm-11 col-md-10 col-lg-9 mb-3 d-flex justify-content-center">
-                                    {!isLoading && <button className="btn btn-outline-success mt-2 my-sm-0" 
+                                    {!isLoading && <button className="btn search  mt-2 my-sm-0" 
                                         type="submit">Search
                                     </button> }
-                                    {isLoading && <button  type="button" className="btn btn-success ">Loading...</button>}
+                                    {isLoading && <button  type="button" className="btn search">Loading...</button>}
                                 </div>
                             </div>
                         </form>
