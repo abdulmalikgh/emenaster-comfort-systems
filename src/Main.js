@@ -32,9 +32,9 @@ export default function Main() {
                         <img height="100" src={contact} alt="contact us" />
                     </div>
                     <div className="card__button draw-border">
-                        <button className="draw-border button">
+                        <a className="draw-border button btn" href="tel:0244005656">
                             Contact Us
-                        </button>
+                        </a>
                     </div>
             </div>
         </div>
