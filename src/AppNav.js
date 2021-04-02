@@ -2,7 +2,18 @@ import React from 'react'
 import logo from './assets/logsmall.png'
 import menu from './assets/menu.svg'
 import { Link } from 'react-router-dom'
+import $ from 'jquery'
+import { useEffect } from 'react'
+
 export default function AppNav() {
+    if(window.innerWidth == 768) {
+          
+    }
+    useEffect(() => {
+       $('.navbar-toggler').on('click', function() {
+           $('#navbarSupportedContent').addClass('border_top') 
+       })
+    }, [])
     return (
         <>
             <nav id="app_nav_bar" className="navbar navbar-expand-lg navbar-light bg-light">
@@ -15,6 +26,9 @@ export default function AppNav() {
 
                 <div className="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul className="navbar-nav ml-auto">
+                    <li className="nav-item">
+                            <Link className="nav-link" aria-current="page" to="/">Home</Link>
+                        </li>
                         <li className="nav-item">
                             <Link className="nav-link" aria-current="page" to="/customer/service_request">Book Request</Link>
                         </li>

@@ -165,7 +165,15 @@ export default function UserRequests() {
                 <Modal.Title>Request Details</Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
-
+                    <p> <strong>Request ID : </strong> {' '} {currentBooking.service_request_id}</p>
+                    <p> <strong>Requested on : </strong> {' '} <Moment format="D MMM YYYY">{currentBooking.created_at}</Moment></p>
+                    <p> <strong>Requested By : </strong> {' '} {currentBooking.customer_name}</p>
+                    <p> <strong>Address : </strong> {' '} {currentBooking.service_request_id}</p>
+                    <p> <strong>Closest Location: </strong> {' '} {currentBooking.customer_address}</p>
+                    <p> <strong>Phone Number : </strong> {' '} {currentBooking.customer_phone_number}</p>
+                    <p> <strong>Quantity requested: </strong> {' '} {currentBooking.quantity}</p>
+                    <p> <strong>Request type : </strong> {' '} {currentBooking.service_request_type_name}</p>
+                    <p> <strong>Request Charge : </strong> {' '} {currentBooking.service_request_charge_value}</p>
                 </Modal.Body>
                 <Modal.Footer>
                 <Button variant="secondary" onClick={hideDetails}>
@@ -200,7 +208,7 @@ export default function UserRequests() {
                      </div>
                  }
                  {
-                     cancelSuccess && <Button variant="danger" onClick={hideCancel}>
+                     cancelSuccess && <Button variant="secondary" onClick={hideCancel}>
                      Close
                  </Button>
                  }

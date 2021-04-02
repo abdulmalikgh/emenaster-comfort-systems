@@ -25,7 +25,6 @@
 }
 body{
     font-family: Gilroy-Medium;
-    background-image: url('./assets/bg/Split_Air_Conditioning_Unit_Shutterstock_XL_721_420_80_s_c1.jpg');
     width:100%;
     height: 100%;
     background-repeat: no-repeat;
@@ -65,14 +64,19 @@ body{
     margin-left: 1em;
 }
 #app_nav_bar ul li:hover {
-    border-bottom: 3px solid var(--danger);
+    border-bottom: 2px solid var(--danger);
 }
 #app_nav_bar ul li a {
     color: var(--black)!important;
-    font-weight: bold;
-    transition: all 0.2s;
-}
 
+    font-size: 15px;
+    font-family: Gilroy-Bold;
+    color: #fff;
+    text-transform: capitalize;
+    cursor: pointer;
+    padding-top: 30px;
+    padding-bottom: 40px;
+}
 #app_nav_bar ul li a:hover {
     color:var(--black)!important;
 }
@@ -82,7 +86,6 @@ body{
 } */
 #main_container{
    width: 100%;
-   padding: 9em 10%;
    /* background-color: var(--primary); */
 }
 
@@ -301,42 +304,81 @@ label{
     margin-top:0;
     padding-top:0;
 }
-/* FOOTER SECTION */
-/* HIDDING BOOTSTRAP BLUE SHADOW*/
-textarea:focus, 
-textarea.form-control:focus, 
-input.form-control:focus, 
-input[type=text]:focus, 
-input[type=password]:focus, 
-input[type=email]:focus, 
-input[type=number]:focus, 
-select:focus,  
-select.form-control:focus, 
-[type=text].form-control:focus, 
-[type=password].form-control:focus, 
-[type=email].form-control:focus, 
-[type=tel].form-control:focus, 
-[contenteditable].form-control:focus {
-  box-shadow: inset 0 -1px 0 #ddd;
+/* login section */
+.sidebar_content{
+    position: absolute;
+    bottom:200px;
+    color:#fff;
+    font-family: Gilroy-Bold ;
+    left:10%;
 }
-@media screen and (max-width:1050px) {
-    #main_container{
-        padding: 9em 5%;
-        /* background-color: var(--primary); */
-     } 
-      
+.sidebar_content h1 {
+    font-size: 34px;
+    font-weight: 500;
+    padding-bottom: 10%;
+    line-height: 29.7px;
 }
-
+.sidebar_content h2{
+    font-size: 22px;
+    line-height: 28px;
+    font-weight: 500;
+}
+.sidebar_content p {
+    font-size: 20px;
+}
+.sidebar_content input{
+    border:1px solid #fff;
+    outline:none;
+    background-color: #fff; 
+    width:60% ;
+    padding:15px 15px 15px 21px;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+}
+.sidebar_content button {
+    background-color: var(--danger);
+    padding: 15px 40px;
+    outline: none;
+    color:#fff;
+    border:1px solid #bf242a;
+    border-top-right-radius: 5px;
+    border-bottom-left-radius: 5px;
+}
+    /* FOOTER SECTION */
+    /* HIDDING BOOTSTRAP BLUE SHADOW*/
+    textarea:focus, 
+    textarea.form-control:focus, 
+    input.form-control:focus, 
+    input[type=text]:focus, 
+    input[type=password]:focus, 
+    input[type=email]:focus, 
+    input[type=number]:focus, 
+    select:focus,  
+    select.form-control:focus, 
+    [type=text].form-control:focus, 
+    [type=password].form-control:focus, 
+    [type=email].form-control:focus, 
+    [type=tel].form-control:focus, 
+    [contenteditable].form-control:focus {
+    box-shadow: inset 0 -1px 0 #ddd;
+    }
 @media screen and (max-width:767px) {
+    .border_top{
+        border-top:1px solid black !important;
+    }
+    .sidebar_content {
+        left:5%;
+    }
+    #app_nav_bar ul li a {
+        padding-top: 5px;
+        padding-bottom: 5px;
+    }
+    
     #app_nav_bar,
-    /* .footer, */
     #service_request_wrapper,
     #user_requests {
         padding-left: 5%;
         padding-right: 5%;
-    }
-    .border-top{
-        border-top:1px solid #000;
     }
     #app_nav_bar ul li:hover {
         border-bottom: none;
@@ -359,10 +401,6 @@ select.form-control:focus,
         padding-left: 8%;
         padding-right: 8%;
     }
-    #main_container{
-        padding: 4em 3%;
-        /* background-color: var(--primary); */
-     }
 }
 @media screen and (max-width:600px) {
     .main__card {
@@ -370,6 +408,12 @@ select.form-control:focus,
     }   
 }
 @media screen and (max-width:440px) {
+    .sidebar_content input{
+        padding:10px 10px 10px 10px;
+    }
+    .sidebar_content button {
+        padding:10px 20px;
+    }
     #app_nav_bar {
         padding-left: 2%;
         padding-right: 2%;

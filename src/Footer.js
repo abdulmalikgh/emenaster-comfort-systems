@@ -58,7 +58,9 @@ export default function Footer() {
                 <div className="col-md-3 mt-4">
                     <h4>Contact Us</h4>
                     < hr/>
-                    <a href='mailto:emenastercomfort@gmail.com'>emenastercomfort@gmail.com</a>
+                    <a href='mailto:emenastercomfort@gmail.com'>
+                        emenastercomfort@gmail.com
+                    </a>
                     <p>P.O Box 28941.</p>
                     <p>East Legon. La Bawaleshie</p>
                     <p>+233244005656</p>
