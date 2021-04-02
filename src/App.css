@@ -176,6 +176,19 @@ body{
     font-weight: bold;
 } */
 /* button hover animation */
+.showOrHide{
+    background-color: transparent;
+    outline:none;
+    border:none;
+    color:#bf242a;
+}
+.showOrHide:hover{
+    background-color: transparent;
+    outline:none;
+    border:none;
+    color:#bf242a;
+    text-decoration: underline;
+}
  .cancel, .details{
      width:100%;
      margin-top:10px;
@@ -321,7 +334,7 @@ label{
 /* FOOTER SECTION */
 #footer{
     background-color: var(--lightblue);
-    padding-top:5em;
+    padding-top:2em;
     padding-bottom: 2em;
     padding-right: 10%;
     padding-left: 10%;
