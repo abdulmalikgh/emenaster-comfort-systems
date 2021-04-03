@@ -1,14 +1,35 @@
-import React from 'react'
+import { useState, useEffect } from 'react'
 import appointments from './assets/demo.png'
 import request from './assets/services.png'
 import contact from './assets/benefit.png'
 import { Link } from 'react-router-dom'
+import axios from 'axios'
 // background images
 import imageONe from './assets/banner0.png'
 import imageTwo from './assets/banner2.png'
 import imageThree from './assets/banner3.png'
 
 export default function Main() {
+    const [phoneNumber, setPhoneNumber] = useState('')
+    const [error, setError] =  useState('')
+    const [success, setSuccess] = useState('')
+    
+    const handleSubmit = async()=>{
+        setError('')
+        setSuccess('')
+        
+        try {
+            const response = await axios.get(`http://139.162.134.202:8000/api/service-request/get-service-requests-by-phone-number/${phoneNumber}`)
+            console.log(response.data.payload)   
+            if(response.data.payload.length === 0) {
+                setError('Opps! phone number not registered')
+                setTimeout(function(){ setError('')}, 3000)
+            }
+         } catch (error) {
+            setError('An error occurred try again')
+         }
+    }
+
     return (
         <main id="main_container"> 
            <div id="carouselExampleSlidesOnly" className="carousel slide" data-ride="carousel">
@@ -29,7 +50,9 @@ export default function Main() {
                         Emenaster Service Porta
                     </h1>
                     <p>Please Login with <br /> your registered mobile number </p>
-                    <input type="number" min="0" maxLength="10" placeholder="Number" /> <button>Login</button>
+                    <input type="text" onChange={setPhoneNumber} pattern="[1-9]{1}[0-9]{9}" maxLength="10" placeholder="Number" /> <button title="Enter a valid phone number" className={!phoneNumber ? 'opacity':''} disabled={!phoneNumber} onClick={handleSubmit}>Login</button>
+                    { error && <p className="text-danger py-2 mt-1"> <small>{error} </small></p>}
+                    { success && <p className="text-success py-2 mt-1"><small>{success}</small></p>}
                 </div>
            </div>
            <div className="card__container__wraper">
