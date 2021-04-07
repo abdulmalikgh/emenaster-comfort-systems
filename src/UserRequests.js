@@ -3,6 +3,7 @@ import axios from 'axios'
 import Moment from 'react-moment';
 import Modal from 'react-bootstrap/Modal'
 import Button from 'react-bootstrap/Button'
+import { get } from 'jquery';
 
 
 export default function UserRequests() {
@@ -27,7 +28,7 @@ export default function UserRequests() {
         setIsLoading(true)
         setIsNoData(false)
         setError('')
-        setError('')
+        isSuccess(false)
 
         const input = phone_number
 
@@ -40,6 +41,7 @@ export default function UserRequests() {
                 return
             } 
             console.log(response.data.payload)
+            localStorage.setItem('user_requests', JSON.stringify(response.data.payload))
             setBookings(response.data.payload)
             isSuccess(true)
            
@@ -83,6 +85,7 @@ export default function UserRequests() {
                 setCancelLoading(false)
                 setConcelSuccess('Service request cancelled successfully')
                 bookings.splice(requestIndex, 1)
+                localStorage.setItem('user_requests', JSON.stringify(bookings))
             }
         } catch (error) {
             setCancelLoading(false)
@@ -90,9 +93,21 @@ export default function UserRequests() {
                 setCancelError('An Error Occured try again.')
             }
         }
-    
+        
     }
-
+    const getLocalData = async () => {
+        const localData = await JSON.parse(localStorage.getItem('user_requests'))
+       
+        if(localData && localData.length > 0) {
+            setBookings(localData)
+            isSuccess(true)
+        }
+        console.log('local data', localData)
+    }
+    // fetching data from localstorage if the user already entered phone number
+    useEffect( () => {
+        getLocalData()
+    },[])
     return (
         <div id="user_requests">
             <div className="user_requests_inner_container">
@@ -131,7 +146,7 @@ export default function UserRequests() {
                                         <th>Service Sequested on</th>
                                         <th>Service Request ID</th>
                                         <th>Service Request Type</th>
-                                        <th>GPS / Closest Landmark</th>
+                                        <th>Status</th>
                                         <th>Actions</th>
                                     </tr>
                                 </thead>
@@ -141,7 +156,11 @@ export default function UserRequests() {
                                             <td><Moment format="D MMM YYYY">{booking.created_at}</Moment></td>
                                             <td>{booking.service_request_id}</td>
                                             <td>{booking.service_request_type_name}</td>
-                                            <td>{booking.customer_address}</td>
+                                            <td>
+                                                {booking.status === 'PENDING' && <p className="badge badge-warning text-light p-2">{booking.status}</p>}
+                                                {booking.status === 'APPROVED' && <p className="badge badge-info text-light p-2">{booking.status}</p>}
+                                                {booking.status === 'COMPLETED' && <p className="badge badge-success text-light p-2">{booking.status}</p>}
+                                            </td>
                                             <td className="button_wrapper">
                                                 <button onClick={() => showDetails(booking)}  type="button" className="btn  details" >
                                                     Details
@@ -171,9 +190,9 @@ export default function UserRequests() {
                     <p> <strong>Address : </strong> {' '} {currentBooking.service_request_id}</p>
                     <p> <strong>Closest Location: </strong> {' '} {currentBooking.customer_address}</p>
                     <p> <strong>Phone Number : </strong> {' '} {currentBooking.customer_phone_number}</p>
-                    <p> <strong>Quantity requested: </strong> {' '} {currentBooking.quantity}</p>
+                    <p> <strong>Air Conditon units: </strong> {' '} {currentBooking.quantity}</p>
                     <p> <strong>Request type : </strong> {' '} {currentBooking.service_request_type_name}</p>
-                    <p> <strong>Request Charge : </strong> {' '} {currentBooking.service_request_charge_value}</p>
+                    <p> <strong>Request Charge : </strong> {' '} {currentBooking.service_request_charge_value * currentBooking.quantity}</p>
                 </Modal.Body>
                 <Modal.Footer>
                 <Button variant="secondary" onClick={hideDetails}>

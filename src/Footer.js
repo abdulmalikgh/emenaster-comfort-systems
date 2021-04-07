@@ -3,6 +3,11 @@ import { Link } from 'react-router-dom'
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faChevronDown} from "@fortawesome/free-solid-svg-icons";
 import { faChevronUp} from "@fortawesome/free-solid-svg-icons";
+import { faPhoneAlt } from "@fortawesome/free-solid-svg-icons";
+import { faMapMarkerAlt } from '@fortawesome/free-solid-svg-icons'
+import { faEnvelopeOpenText } from '@fortawesome/free-solid-svg-icons'
+import { faAddressCard } from '@fortawesome/free-solid-svg-icons'
+
 import $ from 'jquery'
 
 export default function Footer() {
@@ -29,7 +34,7 @@ export default function Footer() {
                     COMFORT SYSTEM</h3>
                     <small>EVERYTHING COOLING</small>
                 </div>
-                <div className="col-md-6 mt-4 foot-menu">
+                <div className="col-md-5 mt-4 foot-menu">
                     <h4 className="quick_link">Some of the many brands we work on</h4>  
                     <hr/>
                     <div className="row">
@@ -48,15 +53,15 @@ export default function Footer() {
                     </div>
                 </div>
 
-                <div className="col-md-3 mt-4">
+                <div className="col-md-4 mt-4">
                     <h4>Contact Us</h4>
                     < hr/>
-                    <a href='mailto:emenastercomfort@gmail.com'>
-                        emenastercomfort@gmail.com
-                    </a>
-                    <p>P.O Box 28941.</p>
-                    <p>East Legon. La Bawaleshie</p>
-                    <p>+233244005656</p>
+                    <p><a href='mailto:emenastercomfort@gmail.com'>
+                        <FontAwesomeIcon color="#bf242a" icon={ faEnvelopeOpenText }  /> {" "}  emenastercomfort@gmail.com
+                    </a> </p>
+                    <p> <FontAwesomeIcon color="#bf242a" icon={ faAddressCard }  /> {" "} P.O Box 28941.</p>
+                    <p> <FontAwesomeIcon color="#bf242a" icon={ faMapMarkerAlt }  /> {" "} East Legon. La Bawaleshie</p>
+                    <p>  <FontAwesomeIcon color="#bf242a" icon={ faPhoneAlt }  /> {" "} +233244005656</p>
                 </div>
 
                 <div className="row justify-content-center">

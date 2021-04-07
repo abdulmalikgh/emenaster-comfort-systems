@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Switch, Route} from 'react-router-dom'
+import { BrowserRouter as Router, Switch, Route, HashRouter} from 'react-router-dom'
 import AppNav from './AppNav'
 import Main from './Main'
 import RequestService from './RequestService'
@@ -7,7 +7,7 @@ import Footer from './Footer'
 
 function App() {
   return (
-    <Router>
+    <HashRouter>
       <AppNav />
         <>
           <Switch>
@@ -23,7 +23,7 @@ function App() {
           </Switch>
         </>
       <Footer />
-    </Router>
+    </HashRouter>
   );
 }
 

@@ -35,9 +35,6 @@ export default function AppNav() {
                         <li className="nav-item">
                             <Link className="nav-link" to="/customer/bookings">My Bookings</Link>
                         </li>
-                        <li className="nav-item">
-                            <a className="nav-link" href="#footer">Contact Us</a>
-                        </li>
                     </ul>
         
                 </div>

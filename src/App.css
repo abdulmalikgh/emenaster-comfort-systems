@@ -47,6 +47,9 @@ body{
     color: var(--black);
     margin: 0;
 }
+#footer p a {
+    color:white;
+}
 /* #footer hr {
     background-color: #03A6E5;
 } */
@@ -94,6 +97,11 @@ body{
 #main_container{
    width: 100%;
    /* background-color: var(--primary); */
+}
+#main_container img{
+    width:100vw;
+    background-size: cover;
+    background-repeat: no-repeat;
 }
 .card__container__wraper{
     width: 100%;
@@ -180,13 +188,13 @@ body{
     background-color: transparent;
     outline:none;
     border:none;
-    color:#bf242a;
+    color:rgb(128, 183, 64);;
 }
 .showOrHide:hover{
     background-color: transparent;
     outline:none;
     border:none;
-    color:#bf242a;
+    color: rgb(128, 183, 64);;
     text-decoration: underline;
 }
  .cancel, .details{
@@ -322,7 +330,7 @@ body{
 #service_request_wrapper, #user_requests{
     font-family: Gilroy-Regular;
     width:100%;
-    background-color: var(--primary);
+    background-color: var(--lightbackground);
     padding: 4em 10%;
 }
 .request_service, .user_requests_inner_container{
@@ -379,7 +387,7 @@ label{
 /* login section */
 .sidebar_content{
     position: absolute;
-    bottom:200px;
+    top:20%;
     color:#fff;
     font-family: Gilroy-Bold ;
     left:10%;
@@ -438,7 +446,22 @@ label{
     [contenteditable].form-control:focus {
     box-shadow: inset 0 -1px 0 #ddd;
     }
+@media screen and (max-width:900px) {
+    .sidebar_content{
+        top:10%;
+    }
+    .sidebar_content h1 {
+        padding-bottom: 2%;
+    }
+}
 @media screen and (max-width:767px) {
+    #main_container img{
+        width:100%;
+        height: 400px;
+        background-size: center center;
+        background-position: center center;
+        background-repeat: no-repeat;
+    }
     .card__container__wraper{
         padding:4em 5%;
     }
@@ -487,6 +510,17 @@ label{
     }   
 }
 @media screen and (max-width:440px) {
+    .sidebar_content h1 {
+        font-size: 24px;
+        font-weight: 400;
+    }
+    .sidebar_content h2{
+        font-size: 20px;
+        font-weight: 400;
+    }
+    .sidebar_content p {
+        font-size: 18px;
+    }
     .sidebar_content input{
         padding:10px 10px 10px 10px;
     }
