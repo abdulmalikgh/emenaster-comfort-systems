@@ -109,7 +109,7 @@ export default function UserRequests() {
         getLocalData()
     },[])
     return (
-        <div id="user_requests">
+        <div id="user_requests" className={success ? '' : 'padding_bottom'}>
             <div className="user_requests_inner_container">
                 <div className="row justify-content-center">
                     <div className="col-11 col-sm-11 col-md-10 col-lg-9 my-3">
@@ -165,10 +165,10 @@ export default function UserRequests() {
                                                 <button onClick={() => showDetails(booking)}  type="button" className="btn  details" >
                                                     Details
                                                 </button>
-                                                <button type="button" className="btn cancel" 
+                                                {booking.status === "PENDING" && <button type="button" className="btn cancel" 
                                                     onClick={()=> showCancel(booking.service_request_id, index)}>
                                                     Cancel
-                                                </button>
+                                                </button>}
                                             </td>
                                         </tr>
                                     ))}

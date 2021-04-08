@@ -48,7 +48,7 @@ export default function Footer() {
                             <p>Samsung</p>
                             <p>LG</p>
                             <p>Hisense</p>
-                            <p>Bruhm</p>
+                            <p>Voltas</p>
                         </div>
                     </div>
                 </div>
@@ -57,11 +57,11 @@ export default function Footer() {
                     <h4>Contact Us</h4>
                     < hr/>
                     <p><a href='mailto:emenastercomfort@gmail.com'>
-                        <FontAwesomeIcon color="#bf242a" icon={ faEnvelopeOpenText }  /> {" "}  emenastercomfort@gmail.com
+                        <FontAwesomeIcon color="#0060DB" icon={ faEnvelopeOpenText }  /> {" "}  emenastercomfort@gmail.com
                     </a> </p>
-                    <p> <FontAwesomeIcon color="#bf242a" icon={ faAddressCard }  /> {" "} P.O Box 28941.</p>
-                    <p> <FontAwesomeIcon color="#bf242a" icon={ faMapMarkerAlt }  /> {" "} East Legon. La Bawaleshie</p>
-                    <p>  <FontAwesomeIcon color="#bf242a" icon={ faPhoneAlt }  /> {" "} +233244005656</p>
+                    <p> <FontAwesomeIcon color="#0060DB" icon={ faAddressCard }  /> {" "} P.O Box 28941.</p>
+                    <p> <FontAwesomeIcon color="#0060DB" icon={ faMapMarkerAlt }  /> {" "} East Legon. La Bawaleshie</p>
+                    <p>  <FontAwesomeIcon color="#0060DB" icon={ faPhoneAlt }  /> {" "} +233244005656</p>
                 </div>
 
                 <div className="row justify-content-center">

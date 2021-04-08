@@ -7,15 +7,23 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faLongArrowAltRight } from "@fortawesome/free-solid-svg-icons";
 import axios from 'axios'
 // background images
-import imageONe from './assets/banner0.png'
-import imageTwo from './assets/banner2.png'
-import imageThree from './assets/banner3.png'
+import imageone from './assets/banner0-min.png'
+import smallImageOne  from './assets/rsz_banner0.png'
+import imagetwo from './assets/banner2-min.png'
+import smallImageTwo from './assets/rsz_banner2-min.png'
+import imagethree from './assets/banner3-min.png'
+import smallImageThree from './assets/rsz_1banner3.png'
 
 export default function Main() {
+
     const [phoneNumber, setPhoneNumber] = useState('')
     const [error, setError] =  useState('')
     const [success, setSuccess] = useState('')
     
+    const imageOne = window.innerHeight >= 767 ? imageone : smallImageOne
+    const imageTwo = window.innerHeight >= 767 ? imagetwo : smallImageTwo
+    const imageThree = window.innerHeight >= 767 ? imagethree : smallImageThree
+
     const handleSubmit = async()=>{
         setError('')
         setSuccess('')
@@ -24,7 +32,7 @@ export default function Main() {
             const response = await axios.get(`http://139.162.134.202:8000/api/service-request/get-service-requests-by-phone-number/${phoneNumber}`) 
             if(response.data.payload.length === 0) {
                 setError('Opps! phone number not registered')
-                setTimeout(function(){ setError('')}, 3000)
+                setTimeout(function(){ setError('')}, 5000)
             }
             if(response.data.payload.length > 0) {
                 localStorage.setItem('user_requests', JSON.stringify(response.data.payload))
@@ -39,22 +47,22 @@ export default function Main() {
         <main id="main_container"> 
            <div id="carouselExampleSlidesOnly" className="carousel slide" data-ride="carousel">
                 <div className="carousel-inner">
-                    <div className="carousel-item active">
-                        <img className="" src={imageONe} alt="first image" />
+                    <div className="carousel-item image_one active">
+                        {/* <img className="" src={imageone} alt="first image" /> */}
                     </div>
-                    <div className="carousel-item " >
-                        <img className=""  src={imageThree} alt="first image" />
+                    <div className="carousel-item image_two" >
+                        {/* <img className=""  src={imagetwo} alt="first image" /> */}
                     </div>
-                    <div className="carousel-item ">
-                        <img className="" src={imageTwo} alt="first image" />
+                    <div className="carousel-item image_three">
+                        {/* <img className="" src={imagethree} alt="first image" /> */}
                     </div>
                 </div>
                 <div className="sidebar_content">
                     <h2>Hello, Welcome to </h2>
                     <h1>
-                        Emenaster Service Porta
+                        Emenaster Service Portal
                     </h1>
-                    <p>Please enter your <br /> phone number to check your request status </p>
+                    <p>Please enter your phone number to check your request status </p>
                     <input type="text" onChange={e => setPhoneNumber(e.target.value)} pattern="[1-9]{1}[0-9]{9}" maxLength="10" placeholder="Number" /> <button title="Enter a valid phone number" className={!phoneNumber ? 'opacity':''} disabled={!phoneNumber} onClick={handleSubmit}>Search</button>
                     { error && <p className="text-danger py-2 mt-1"> <small>{error} </small></p>}
                     { success && <p className="text-success py-2 mt-1"><small>{success}</small></p>}
@@ -66,9 +74,9 @@ export default function Main() {
                         <div className="card_inside">
                             <div className="title-img">
                                 <h2>Get a HVAC expert in 3 steps</h2>
-                                <p className="py-1"> <FontAwesomeIcon color="#bf242a" icon={faLongArrowAltRight}  /> {" "}Provide personal detetails.</p>
-                                <p className="py-1"> <FontAwesomeIcon color="#bf242a" icon={faLongArrowAltRight}  /> {" "} Choose preferred time. </p>
-                                <p className="py-1"> <FontAwesomeIcon color="#bf242a" icon={faLongArrowAltRight}  /> {" "} Manage your bookings.</p>
+                                <p className="py-1"> <FontAwesomeIcon color="#0060DB" icon={faLongArrowAltRight}  /> {" "} Provide personal details.</p>
+                                <p className="py-1"> <FontAwesomeIcon color="#0060DB" icon={faLongArrowAltRight}  /> {" "} Choose preferred time. </p>
+                                <p className="py-1"> <FontAwesomeIcon color="#0060DB" icon={faLongArrowAltRight}  /> {" "} Manage your bookings.</p>
                             </div>
                         </div>
                     </div>
