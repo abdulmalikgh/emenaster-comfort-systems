@@ -130,10 +130,10 @@ export default function RequestService() {
                                 </div>
                                 <div className="col-md-6">
                                     <div className="form-group">
-                                        <label htmlFor="service_request_charge">Delivery Period</label>
+                                        <label htmlFor="service_request_charge">Preferred Time</label>
                                         <select  className="form-control" name="serivice_request_charge"
                                             onChange={e => setRequestCharge(e.target.value)} required="required" >
-                                            <option value='' className="text-dark">Select service delivery period</option>
+                                            <option value='' className="text-dark">Select Preferred time</option>
                                             <>
                                                 {serviceRequestCharges.map( type => ( <option key={type.service_delivery_charge_id} value={type.service_delivery_charge_id}>{type.service_delivery_charge_name} {`(GH₵:${type.service_delivery_charge})`}</option>))}
                                             </>
@@ -142,7 +142,7 @@ export default function RequestService() {
                                 </div>
                                 <div className="col-md-6">
                                     <div className="form-group">
-                                        <label htmlFor="units"> Number of Air Condition units </label>
+                                        <label htmlFor="units"> Number of Airconditioner Units </label>
                                         <input required type="number" placeholder="eg 2" title="input must be a number"
                                             name="units" id="units" className="form-control" min="0"
                                             onChange={e => setQuantity(e.target.value)}

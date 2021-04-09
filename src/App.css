@@ -110,19 +110,20 @@ body{
 }
 /* images content */
 .carousel-item{
-    height: 600px;
+    width:100%;
+    height: 100vh;
     background-size: cover;
     background-repeat: no-repeat;
     background-position: top center;
 }
 .image_one{
-    background-image:url('./assets/banner0-min.png')
+    background-image:url('./assets/bg/rsz_dsc00136-min.jpg')
 }
 .image_two{
-    background-image: url('./assets/banner2-min.png');
+    background-image: url('./assets/bg/rsz_dsc00235-min.jpg');
 }
 .image_three{
-    background-image:url('./assets/banner3-min.png')
+    background-image:url('./assets/bg/rsz_bg2-min.jpg')
 }
 .card__container__wraper{
     width: 100%;
@@ -478,7 +479,7 @@ label{
     } */
 }
 @media screen and (max-width:767px) {
-    .image_one{
+    /* .image_one{
         background-image:url('./assets/rsz_banner0.png')
     }
     .image_two{
@@ -486,7 +487,7 @@ label{
     }
     .image_three{
         background-image:url('./assets/rsz_1banner3.png')
-    }
+    } */
     .carousel-item{
         height: 400px;
         /* background-size: center center;
