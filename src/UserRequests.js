@@ -33,7 +33,7 @@ export default function UserRequests() {
         const input = phone_number
 
         try {
-            const response = await axios.get(`http://139.162.134.202:8000/api/service-request/get-service-requests-by-phone-number/${phone_number}`)
+            const response = await axios.get(`https://dashboard.emenaster.com/api/service-request/get-service-requests-by-phone-number/${phone_number}`)
             setIsLoading(false)
 
             if(response.data.payload.length === 0) {
@@ -80,7 +80,7 @@ export default function UserRequests() {
     const cancelRequest = async () => {
         setCancelLoading(true)
         try {
-            const response = await axios.delete(`http://139.162.134.202:8000/api/service-request/delete-service-by-service-request-id/${request_id}`)
+            const response = await axios.delete(`https://dashboard.emenaster.com/api/service-request/delete-service-by-service-request-id/${request_id}`)
             if(response) {
                 setCancelLoading(false)
                 setConcelSuccess('Service request cancelled successfully')

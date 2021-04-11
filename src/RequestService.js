@@ -20,7 +20,7 @@ export default function RequestService() {
     // GET SERVICE
     const fetchServiceRequest = async () => {
         try {
-            const serviceTypes = await  axios.get('http://139.162.134.202:8000/api/service-request/get-service-request-types')
+            const serviceTypes = await  axios.get('https://dashboard.emenaster.com/api/service-request/get-service-request-types')
             setsServiceRequestTypes(serviceTypes.data.payload)
             console.log('service type', serviceTypes)
         } catch (error) {
@@ -50,7 +50,7 @@ export default function RequestService() {
         }
 
        try {
-            const response = await axios.post('http://139.162.134.202:8000/api/service-request/post-service-request',data )
+            const response = await axios.post('https://dashboard.emenaster.com/api/service-request/post-service-request',data )
             setIsLoading(false)
             setSuccces(response.data.message)
             setCustomerName(null)

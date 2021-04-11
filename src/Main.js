@@ -29,7 +29,7 @@ export default function Main() {
         setSuccess('')
         
         try {
-            const response = await axios.get(`http://139.162.134.202:8000/api/service-request/get-service-requests-by-phone-number/${phoneNumber}`) 
+            const response = await axios.get(`https://dashboard.emenaster.com/api/service-request/get-service-requests-by-phone-number/${phoneNumber}`) 
             if(response.data.payload.length === 0) {
                 setError('Opps! phone number not registered')
                 setTimeout(function(){ setError('')}, 5000)
