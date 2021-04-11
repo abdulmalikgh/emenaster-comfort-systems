@@ -1,5 +1,6 @@
 import {useEffect, useState} from 'react'
 import axios from 'axios'
+import { faCommentDollar } from '@fortawesome/free-solid-svg-icons'
 
 export default function RequestService() {
     const [serviceRequestTypes, setsServiceRequestTypes] = useState([])
@@ -51,15 +52,25 @@ export default function RequestService() {
 
        try {
             const response = await axios.post('http://139.162.134.202:8000/api/service-request/post-service-request',data )
-            setIsLoading(false)
-            setSuccces(response.data.message)
-            setCustomerName(null)
-            setCustomerPhoneNumber(null)
-            setCustomerAddress(null)
-            setRequestCharge(null) 
-            setRequestType(null)  
-            setCustomerEmail(null)
-            setQuantity(null)
+            if(response) {
+                setIsLoading(false)
+                setSuccces("Request has been received successfully. Thank You.")
+                console.log("Data", response)
+                try {
+                    const response = await axios.get(`http://139.162.134.202:8000/api/service-request/get-service-requests-by-phone-number/${customer_phone_number}`) 
+                    localStorage.setItem('user_requests', JSON.stringify(response.data.payload))
+                } catch (error) {
+                  console.log('error', error)  
+                }
+
+                // setCustomerName('')
+                // setCustomerPhoneNumber('')
+                // setCustomerAddress('')
+                // setRequestCharge('') 
+                // setRequestType('')  
+                // setCustomerEmail('')
+                // setQuantity('')
+            }
 
        } catch (error) {
             setIsLoading(false)
@@ -153,7 +164,7 @@ export default function RequestService() {
                             {success && <div class="alert alert-success py-2" role="alert">
                                 <p>{success}</p>
                             </div>}
-                            {error && <div class="alert alert-alert py-2" role="alert">
+                            {error && <div class="alert alert-danger py-2" role="alert">
                                 <p>{error}</p>
                             </div>}
                             <div className="modal-footer">
