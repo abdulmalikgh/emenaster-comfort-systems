@@ -36,7 +36,7 @@ export default function Main() {
             }
             if(response.data.payload.length > 0) {
                 localStorage.setItem('user_requests', JSON.stringify(response.data.payload))
-                window.location.replace('/customer/bookings')
+                window.location.replace('/#/customer/bookings')
             }
          } catch (error) {
             setError('An error occurred try again')

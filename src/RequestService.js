@@ -1,5 +1,6 @@
 import {useEffect, useState} from 'react'
 import axios from 'axios'
+import { faCommentDollar } from '@fortawesome/free-solid-svg-icons'
 
 export default function RequestService() {
     const [serviceRequestTypes, setsServiceRequestTypes] = useState([])
@@ -51,15 +52,25 @@ export default function RequestService() {
 
        try {
             const response = await axios.post('https://dashboard.emenaster.com/api/service-request/post-service-request',data )
-            setIsLoading(false)
-            setSuccces(response.data.message)
-            setCustomerName(null)
-            setCustomerPhoneNumber(null)
-            setCustomerAddress(null)
-            setRequestCharge(null) 
-            setRequestType(null)  
-            setCustomerEmail(null)
-            setQuantity(null)
+            if(response) {
+                setIsLoading(false)
+                setSuccces("Request has been received successfully. Thank You.")
+                console.log("Data", response)
+                try {
+                    const response = await axios.get(`https://dashboard.emenaster.com/api/service-request/get-service-requests-by-phone-number/${customer_phone_number}`) 
+                    localStorage.setItem('user_requests', JSON.stringify(response.data.payload))
+                } catch (error) {
+                  console.log('error', error)  
+                }
+
+                // setCustomerName('')
+                // setCustomerPhoneNumber('')
+                // setCustomerAddress('')
+                // setRequestCharge('') 
+                // setRequestType('')  
+                // setCustomerEmail('')
+                // setQuantity('')
+            }
 
        } catch (error) {
             setIsLoading(false)
@@ -101,7 +112,7 @@ export default function RequestService() {
                                 <div className="col-md-6">
                                     <div className="form-group">
                                         <label htmlFor="customer_email"> Email Address </label>
-                                        <input required type="email" placeholder="Enter your email address" 
+                                        <input type="email" placeholder="Enter your email address" 
                                             name="customer_email" id="customer_email" className="form-control" 
                                             onChange={e => setCustomerEmail(e.target.value)}
                                         />
@@ -153,7 +164,7 @@ export default function RequestService() {
                             {success && <div class="alert alert-success py-2" role="alert">
                                 <p>{success}</p>
                             </div>}
-                            {error && <div class="alert alert-alert py-2" role="alert">
+                            {error && <div class="alert alert-danger py-2" role="alert">
                                 <p>{error}</p>
                             </div>}
                             <div className="modal-footer">
