@@ -117,13 +117,13 @@ body{
     background-position: top center;
 }
 .image_one{
-    background-image:url('./assets/bg/rsz_dsc00136-min.jpg')
+    background-image:url('./assets/bg/DSC00136-min.jpeg')
 }
 .image_two{
-    background-image: url('./assets/bg/rsz_dsc00235-min.jpg');
+    background-image: url('./assets/bg/DSC00235-min.jpeg');
 }
 .image_three{
-    background-image:url('./assets/bg/rsz_bg2-min.jpg')
+    background-image:url('./assets/bg/whatssap_small.jpg')
 }
 .card__container__wraper{
     width: 100%;

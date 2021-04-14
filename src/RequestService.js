@@ -1,6 +1,7 @@
 import {useEffect, useState} from 'react'
 import axios from 'axios'
 import { faCommentDollar } from '@fortawesome/free-solid-svg-icons'
+import { useHistory } from "react-router-dom";
 
 export default function RequestService() {
     const [serviceRequestTypes, setsServiceRequestTypes] = useState([])
@@ -17,13 +18,13 @@ export default function RequestService() {
     const [success, setSuccces] = useState('')
     const [error, setError] = useState('')
     const [quantity, setQuantity] = useState('')
+    const history = useHistory();
     
     // GET SERVICE
     const fetchServiceRequest = async () => {
         try {
             const serviceTypes = await  axios.get('http://139.162.134.202:8000/api/service-request/get-service-request-types')
             setsServiceRequestTypes(serviceTypes.data.payload)
-            console.log('service type', serviceTypes)
         } catch (error) {
             console.log('fetch type error', error)
         }
@@ -55,14 +56,18 @@ export default function RequestService() {
             if(response) {
                 setIsLoading(false)
                 setSuccces("Request has been received successfully. Thank You.")
-                console.log("Data", response)
                 try {
                     const response = await axios.get(`http://139.162.134.202:8000/api/service-request/get-service-requests-by-phone-number/${customer_phone_number}`) 
                     localStorage.setItem('user_requests', JSON.stringify(response.data.payload))
-                } catch (error) {
-                  console.log('error', error)  
-                }
 
+                    setTimeout(function(){
+                        history.push('/customer/bookings')
+                    }, 3000)
+
+                } catch (error) {
+                  
+                }
+                
                 // setCustomerName('')
                 // setCustomerPhoneNumber('')
                 // setCustomerAddress('')
