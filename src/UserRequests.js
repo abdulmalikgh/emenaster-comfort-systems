@@ -33,7 +33,7 @@ export default function UserRequests() {
         const input = phone_number
 
         try {
-            const response = await axios.get(`http://139.162.134.202:8000/api/service-request/get-service-requests-by-phone-number/${phone_number}`)
+            const response = await axios.get(`https://dashboard.emenaster.com/api/service-request/get-service-requests-by-phone-number/${phone_number}`)
             setIsLoading(false)
 
             if(response.data.payload.length === 0) {
@@ -80,7 +80,7 @@ export default function UserRequests() {
     const cancelRequest = async () => {
         setCancelLoading(true)
         try {
-            const response = await axios.delete(`http://139.162.134.202:8000/api/service-request/delete-service-by-service-request-id/${request_id}`)
+            const response = await axios.delete(`https://dashboard.emenaster.com/api/service-request/delete-service-by-service-request-id/${request_id}`)
             if(response) {
                 setCancelLoading(false)
                 setConcelSuccess('Service request cancelled successfully')
@@ -112,7 +112,7 @@ export default function UserRequests() {
         <div id="user_requests" className={success ? '' : 'padding_bottom'}>
             <div className="user_requests_inner_container">
                 <div className="row justify-content-center">
-                    <div className="col-11 col-sm-11 col-md-10 col-lg-9 my-3">
+                    <div className="col-11 col-sm-12 col-md-10 col-lg-9 my-3">
                         <form className="pt-3" onSubmit={handleSubmit}>
                             <div className="form-group">
                                 <input required type="tel" 
@@ -190,9 +190,9 @@ export default function UserRequests() {
                     <p> <strong>Address : </strong> {' '} {currentBooking.service_request_id}</p>
                     <p> <strong>Closest Location: </strong> {' '} {currentBooking.customer_address}</p>
                     <p> <strong>Phone Number : </strong> {' '} {currentBooking.customer_phone_number}</p>
-                    <p> <strong>Air Conditon units: </strong> {' '} {currentBooking.quantity}</p>
+                    <p> <strong>Air Conditoner units: </strong> {' '} {currentBooking.quantity}</p>
                     <p> <strong>Request type : </strong> {' '} {currentBooking.service_request_type_name}</p>
-                    <p> <strong>Request Charge : </strong> {' '} {currentBooking.service_request_charge_value * currentBooking.quantity}</p>
+                    <p> <strong>Request Charge : </strong> GHC{' '} {currentBooking.service_request_charge_value * currentBooking.quantity}</p>
                 </Modal.Body>
                 <Modal.Footer>
                 <Button variant="secondary" onClick={hideDetails}>

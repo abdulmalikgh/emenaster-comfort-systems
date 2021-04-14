@@ -23,7 +23,7 @@ export default function RequestService() {
     // GET SERVICE
     const fetchServiceRequest = async () => {
         try {
-            const serviceTypes = await  axios.get('http://139.162.134.202:8000/api/service-request/get-service-request-types')
+            const serviceTypes = await  axios.get('https://dashboard.emenaster.com/api/service-request/get-service-request-types')
             setsServiceRequestTypes(serviceTypes.data.payload)
         } catch (error) {
             console.log('fetch type error', error)
@@ -52,12 +52,12 @@ export default function RequestService() {
         }
 
        try {
-            const response = await axios.post('http://139.162.134.202:8000/api/service-request/post-service-request',data )
+            const response = await axios.post('https://dashboard.emenaster.com/api/service-request/post-service-request',data )
             if(response) {
                 setIsLoading(false)
                 setSuccces("Request has been received successfully. Thank You.")
                 try {
-                    const response = await axios.get(`http://139.162.134.202:8000/api/service-request/get-service-requests-by-phone-number/${customer_phone_number}`) 
+                    const response = await axios.get(`https://dashboard.emenaster.com/api/service-request/get-service-requests-by-phone-number/${customer_phone_number}`) 
                     localStorage.setItem('user_requests', JSON.stringify(response.data.payload))
 
                     setTimeout(function(){
@@ -117,7 +117,7 @@ export default function RequestService() {
                                 <div className="col-md-6">
                                     <div className="form-group">
                                         <label htmlFor="customer_email"> Email Address </label>
-                                        <input required type="email" placeholder="Enter your email address" 
+                                        <input type="email" placeholder="Enter your email address" 
                                             name="customer_email" id="customer_email" className="form-control" 
                                             onChange={e => setCustomerEmail(e.target.value)}
                                         />
